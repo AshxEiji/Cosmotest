@@ -29,7 +29,8 @@ function setup() {
     createP = canvas/2; // positionne le texte
 
     button = createButton('click me'); // crée un bouton et lui donne un nom
-    button.position(largeur/2-50, hauteur-150); // donne la position du bouton
+    button.position(largeur/2-100, hauteur-260); // donne la position du bouton
+    button.size(200, 200);
     button.mousePressed(comptearebours); // permet au clic d'activer la fonction reliée au bouton
 
 
@@ -68,7 +69,6 @@ function setup() {
 
     buttoncouleur = createButton('Sauvegarder la couleur'); // crée un bouton et lui donne un nom
     buttoncouleur.position(hauteur/3, 20); // donne la position du bouton
-    button.size(100, 100);
     buttoncouleur.mousePressed(couleursaved); // permet au clic d'activer la fonction reliée au bouton
 }
 
