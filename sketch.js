@@ -23,6 +23,7 @@ var buttonvisible = true // variable lié au bouton pour rendre invisible les au
 // fonction gérant les paramètres de base, appelée une seule fois au début
 function setup() {
     canvas = createCanvas(); // crée le canvas
+    pixelDensity(1);
     largeur = windowWidth // Explique que la largeur fait la taille de l'écran
     hauteur = windowHeight // explique que la hauteur fait la taille de l'écran
     canvas.size(largeur, hauteur) // gère la taille du canvas
@@ -274,9 +275,9 @@ function positionner_boutons(){
         buttonclick.size(200, 200);
         buttonclick.position(largeur/2-100, hauteur-260); // donne la position du bouton
 
-        buttonSuivant.position(largeur-80, 450); // donne la position du bouton
+        buttonSuivant.position(largeur-80, hauteur/2); // donne la position du bouton
 
-        buttonAurevoir.position(19, 450); // donne la position du bouton
+        buttonAurevoir.position(19, hauteur/2); // donne la position du bouton
 
         buttonHide.position(largeur-160, 20); // donne la position du bouton
 
