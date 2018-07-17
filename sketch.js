@@ -31,12 +31,12 @@ function setup() {
 
  
 
-    buttonclick = createButton('click me'); // crée un bouton et lui donne un nom
-    buttonclick.mousePressed(comptearebours); // permet au clic d'activer la fonction reliée au bouton
+    buttonclick = createImg("medias/Sans titre-1.png",'click me'); // crée un bouton et lui donne un nom
+    buttonclick.mouseClicked(comptearebours); // permet au clic d'activer la fonction reliée au bouton
 
 
     camera = createCapture(VIDEO); // permet à la caméra de fonctionner
-    camera.size(largeur, hauteur); // gère la taille de la caméra
+   // camera.size(largeur, hauteur); // gère la taille de la caméra
 
     camera.hide(); // empêche la caméra de sortir du canvas
     frameRate(20); // le nombre de fois que la fonction draw va être appelée par seconde
@@ -56,18 +56,18 @@ function setup() {
 
 
     buttonSuivant = createButton('droite'); // crée un bouton et lui donne un nom
-    buttonSuivant.mousePressed(suivant); // permet au clic d'activer la fonction reliée au bouton
+    buttonSuivant.mouseClicked(suivant); // permet au clic d'activer la fonction reliée au bouton
 
     buttonAurevoir = createButton('gauche'); // crée un bouton et lui donne un nom
-    buttonAurevoir.mousePressed(aurevoir); // permet au clic d'activer la fonction reliée au bouton
+    buttonAurevoir.mouseClicked(aurevoir); // permet au clic d'activer la fonction reliée au bouton
 
     buttonHide = createButton('Cacher les boutons'); // crée un bouton et lui donne un nom
-    buttonHide.mousePressed(cacher); // permet au clic d'activer la fonction reliée au bouton
+    buttonHide.mouseClicked(cacher); // permet au clic d'activer la fonction reliée au bouton
 
     buttoncouleur = createButton('Sauvegarder la couleur'); // crée un bouton et lui donne un nom
-    buttoncouleur.mousePressed(couleursaved); // permet au clic d'activer la fonction reliée au bouton
+    buttoncouleur.mouseClicked(couleursaved); // permet au clic d'activer la fonction reliée au bouton
 
-       positionner_boutons();
+       windowResized(); // fonction appelé pour que la position des boutons change selon l'écran
 }
 
 // Fonction pour sauvegarder la valeur du slider
@@ -99,13 +99,18 @@ function cacher() {
    }
 }
 
-
+    var resolution = 1/2
 function windowResized() {
+
     largeur = windowWidth
     hauteur = windowHeight 
-    canvas.size(largeur, hauteur) // gère la taille du canvas
-    camera.size(largeur, hauteur); // gère la taille de la caméra
-       positionner_boutons();
+    canvas.size(largeur*resolution, hauteur*resolution) // gère la taille du canvas
+    camera.size(largeur*resolution, hauteur*resolution); // gère la taille de la caméra
+    canvas.canvas.style.width= largeur+"px"
+    canvas.canvas.style.height= hauteur+"px"
+    //canvas.style("height", hauteur+"px")
+    
+    positionner_boutons();
 }
 
 // sert au bouton pour changer l'image vers la suivante
@@ -194,7 +199,7 @@ function draw() {
     var caracter = ''+secondesCR // variable pour ajouter un texte à chaque seconde
 
       if (secondesCR>0&&secondesCR!=7) { 
-        text(caracter, positionXTexte, positionYTexte);
+        text(caracter, positionXTexte, positionYTexte); // balise qui fait apparaître le texte
       }
 
 
@@ -231,17 +236,14 @@ function distance(r1,g1,b1,r2,g2,b2) {
 
 // fonction regroupant tous les éléments touchant à la vidéo webcam
 function dessinerCamera() {
-    if (camera.width == 0) {
-    camera.width = camera.imageData.width
-    camera.height = camera.imageData.height 
-    }
+   if (camera.width == 0 &&camera.imageData) {camera.width = camera.imageData.width; camera.height = camera.imageData.height  }
 
  camera.loadPixels(); // permet de toucher à la variable camera.pixels
     if (camera.pixels.length) {
         
 
-        const w = largeur; // raccourci vers la variable largeur
-        const h = hauteur; // raccourci vers la variable hauteur
+        const w = largeur*resolution; // raccourci vers la variable largeur
+        const h = hauteur*resolution; // raccourci vers la variable hauteur
 
         for (var i = 0; i < w; i++) { // se déplacer dans la largeur
 
@@ -270,9 +272,9 @@ function dessinerCamera() {
     }
 }
 
-
+// fonction permettant le changement de position des boutons par rapport à l'écran
 function positionner_boutons(){
-        buttonclick.size(200, 200);
+        buttonclick.size(200, 200); // donne la taille du bouton
         buttonclick.position(largeur/2-100, hauteur-260); // donne la position du bouton
 
         buttonSuivant.position(largeur-80, hauteur/2); // donne la position du bouton
