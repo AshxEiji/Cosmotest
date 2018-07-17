@@ -42,7 +42,6 @@ function setup() {
 
     
     seuilSlider = createSlider(0, 255,seuil); // définie la valeur minimum, maximum puis celle initiale
-    seuilSlider.position(largeur/5, 20); // gère la position du slider du seuil
     seuilSlider.input(sliderchange); // sauvegarde le slider en le déplaçant
     seuilSlider.mouseReleased(sliderchange); // sauvegarde le slider au moment où le clic est relaché
 
@@ -279,9 +278,9 @@ function positionner_boutons(){
 
         buttonAurevoir.position(19, 450); // donne la position du bouton
 
-        buttonHide.position(hauteur/2, 20); // donne la position du bouton
+        buttonHide.position(largeur-160, 20); // donne la position du bouton
 
-        buttoncouleur.position(hauteur/3, 20); // donne la position du bouton
+        buttoncouleur.position(largeur/3, 20); // donne la position du bouton
 
-
+        seuilSlider.position(19, 20); // gère la position du slider du seuil
 }
