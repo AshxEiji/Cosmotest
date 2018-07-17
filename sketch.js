@@ -28,10 +28,10 @@ function setup() {
     canvas.size(largeur, hauteur) // gère la taille du canvas
     createP = canvas/2; // positionne le texte
 
-    button = createButton('click me'); // crée un bouton et lui donne un nom
-    button.position(largeur/2-100, hauteur-260); // donne la position du bouton
-    button.size(200, 200);
-    button.mousePressed(comptearebours); // permet au clic d'activer la fonction reliée au bouton
+ 
+
+    buttonclick = createButton('click me'); // crée un bouton et lui donne un nom
+    buttonclick.mousePressed(comptearebours); // permet au clic d'activer la fonction reliée au bouton
 
 
     camera = createCapture(VIDEO); // permet à la caméra de fonctionner
@@ -56,20 +56,18 @@ function setup() {
 
 
     buttonSuivant = createButton('droite'); // crée un bouton et lui donne un nom
-    buttonSuivant.position(largeur-80, 450); // donne la position du bouton
     buttonSuivant.mousePressed(suivant); // permet au clic d'activer la fonction reliée au bouton
 
     buttonAurevoir = createButton('gauche'); // crée un bouton et lui donne un nom
-    buttonAurevoir.position(19, 450); // donne la position du bouton
     buttonAurevoir.mousePressed(aurevoir); // permet au clic d'activer la fonction reliée au bouton
 
     buttonHide = createButton('Cacher les boutons'); // crée un bouton et lui donne un nom
-    buttonHide.position(hauteur/2, 20); // donne la position du bouton
     buttonHide.mousePressed(cacher); // permet au clic d'activer la fonction reliée au bouton
 
     buttoncouleur = createButton('Sauvegarder la couleur'); // crée un bouton et lui donne un nom
-    buttoncouleur.position(hauteur/3, 20); // donne la position du bouton
     buttoncouleur.mousePressed(couleursaved); // permet au clic d'activer la fonction reliée au bouton
+
+       positionner_boutons();
 }
 
 // Fonction pour sauvegarder la valeur du slider
@@ -107,6 +105,7 @@ function windowResized() {
     hauteur = windowHeight 
     canvas.size(largeur, hauteur) // gère la taille du canvas
     camera.size(largeur, hauteur); // gère la taille de la caméra
+       positionner_boutons();
 }
 
 // sert au bouton pour changer l'image vers la suivante
@@ -272,3 +271,17 @@ function dessinerCamera() {
 }
 
 
+function positionner_boutons(){
+        buttonclick.size(200, 200);
+        buttonclick.position(largeur/2-100, hauteur-260); // donne la position du bouton
+
+        buttonSuivant.position(largeur-80, 450); // donne la position du bouton
+
+        buttonAurevoir.position(19, 450); // donne la position du bouton
+
+        buttonHide.position(hauteur/2, 20); // donne la position du bouton
+
+        buttoncouleur.position(hauteur/3, 20); // donne la position du bouton
+
+
+}
