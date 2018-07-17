@@ -55,11 +55,11 @@ function setup() {
 
 
 
-    buttonSuivant = createButton('changer'); // crée un bouton et lui donne un nom
-    buttonSuivant.position(310, 450); // donne la position du bouton
+    buttonSuivant = createButton('droite'); // crée un bouton et lui donne un nom
+    buttonSuivant.position(largeur-80, 450); // donne la position du bouton
     buttonSuivant.mousePressed(suivant); // permet au clic d'activer la fonction reliée au bouton
 
-    buttonAurevoir = createButton('tamer'); // crée un bouton et lui donne un nom
+    buttonAurevoir = createButton('gauche'); // crée un bouton et lui donne un nom
     buttonAurevoir.position(19, 450); // donne la position du bouton
     buttonAurevoir.mousePressed(aurevoir); // permet au clic d'activer la fonction reliée au bouton
 
