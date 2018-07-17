@@ -80,7 +80,7 @@ function cacher() {
     if (buttonvisible) {
         buttonSuivant.hide()
         buttonAurevoir.hide()
-        button.hide()
+        buttonclick.hide()
         seuilSlider.hide()
         buttoncouleur.hide()
         buttonvisible=false
@@ -91,7 +91,7 @@ function cacher() {
    else {
        buttonSuivant.show()
        buttonAurevoir.show()
-       button.show()
+       buttonclick.show()
        seuilSlider.show()
        buttoncouleur.show()
        buttonvisible=true
