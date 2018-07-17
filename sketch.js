@@ -16,7 +16,7 @@ var imgg
 var buttonhide
 var buttonvisible = true // variable lié au bouton pour rendre invisible les autres, permet de donner un paramètre vrai
 
-    
+var resolution = 1/2
 
 
 
@@ -105,7 +105,7 @@ function cacher() {
    }
 }
 
-    var resolution = 1/2
+
 function windowResized() {
 
     largeur = windowWidth
@@ -189,7 +189,7 @@ var photoFullDay = photoDay+'-'+photoMonth+'-'+photoYear+'-'+photoHour+photoMinu
 // fonction qui active les éléments en permanence
 function draw() {
     //background(0, 0, 255); // sert à changer la couleur du fond
-    image(imgg, 0, 0, largeur, hauteur); // sert à changer la position et la taille de la vidéo incrustée
+    image(imgg, 0, 0, largeur*resolution, hauteur*resolution); // sert à changer la position et la taille de la vidéo incrustée
 
     loadPixels(); // permet de charger la variable des pixels
     dessinerCamera(); // fait fonctionner la caméra lorsque le code est lancé
@@ -296,5 +296,14 @@ function positionner_boutons(){
 
 
 function changerResolution(){
-var choix = menuResolution.value
+var choix = menuResolution.value()
+if(choix=='HD'){
+    resolution = 1
+}
+
+else {
+    resolution = 0.5
+}
+windowResized()
+
 }
