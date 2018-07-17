@@ -41,7 +41,7 @@ function setup() {
 
     
     seuilSlider = createSlider(0, 255,seuil); // définie la valeur minimum, maximum puis celle initiale
-    seuilSlider.position(largeur/3, 60); // gère la position du slider du seuil
+    seuilSlider.position(largeur/5, 20); // gère la position du slider du seuil
     seuilSlider.input(sliderchange); // sauvegarde le slider en le déplaçant
     seuilSlider.mouseReleased(sliderchange); // sauvegarde le slider au moment où le clic est relaché
 
@@ -63,11 +63,11 @@ function setup() {
     buttonAurevoir.mousePressed(aurevoir); // permet au clic d'activer la fonction reliée au bouton
 
     buttonHide = createButton('Cacher les boutons'); // crée un bouton et lui donne un nom
-    buttonHide.position(250, 20); // donne la position du bouton
+    buttonHide.position(hauteur/2, 20); // donne la position du bouton
     buttonHide.mousePressed(cacher); // permet au clic d'activer la fonction reliée au bouton
 
     buttoncouleur = createButton('Sauvegarder la couleur'); // crée un bouton et lui donne un nom
-    buttoncouleur.position(290, 20); // donne la position du bouton
+    buttoncouleur.position(hauteur/3, 20); // donne la position du bouton
     buttoncouleur.mousePressed(couleursaved); // permet au clic d'activer la fonction reliée au bouton
 }
 
@@ -83,6 +83,7 @@ function cacher() {
         buttonAurevoir.hide()
         button.hide()
         seuilSlider.hide()
+        buttoncouleur.hide()
         buttonvisible=false
 // cache tous les boutons cités puis rend la variable fausse
     }
@@ -93,6 +94,7 @@ function cacher() {
        buttonAurevoir.show()
        button.show()
        seuilSlider.show()
+       buttoncouleur.show()
        buttonvisible=true
        // remet tous les boutons visible et rend la variable vraie
    }
