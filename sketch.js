@@ -67,6 +67,12 @@ function setup() {
     buttoncouleur = createButton('Sauvegarder la couleur'); // crée un bouton et lui donne un nom
     buttoncouleur.mouseClicked(couleursaved); // permet au clic d'activer la fonction reliée au bouton
 
+    menuResolution = createSelect();
+    menuResolution.option("HD");
+    menuResolution.option("SD");
+    menuResolution.changed(changerResolution);
+    menuResolution.position(200, 200);
+
        windowResized(); // fonction appelé pour que la position des boutons change selon l'écran
 }
 
@@ -286,4 +292,9 @@ function positionner_boutons(){
         buttoncouleur.position(largeur/3, 20); // donne la position du bouton
 
         seuilSlider.position(19, 20); // gère la position du slider du seuil
+}
+
+
+function changerResolution(){
+var choix = menuResolution.value
 }
