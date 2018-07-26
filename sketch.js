@@ -62,7 +62,7 @@ function setup() {
     buttonSuivant = createImg("medias/droite.png", 'droite'); // crée un bouton et lui donne un nom
     buttonSuivant.mouseClicked(suivant); // permet au clic d'activer la fonction reliée au bouton
 
-    buttonAurevoir = createImg("medias/gauche.png", 'gauche'); // crée un bouton et lui donne un nom
+    buttonAurevoir = createImg("medias/gauche1.png", 'gauche'); // crée un bouton et lui donne un nom
     buttonAurevoir.mouseClicked(aurevoir); // permet au clic d'activer la fonction reliée au bouton
 
     buttonHide = createButton('Cacher les boutons'); // crée un bouton et lui donne un nom
