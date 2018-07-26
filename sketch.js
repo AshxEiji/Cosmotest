@@ -272,6 +272,7 @@ function mouseClicked(e) {
         couleuradetecter[2]=camera.pixels[position1d+2] // gère le bleu
         return false; // permet d'empêcher la fonction de s'étendre sur les autres
     }
+    console.log(couleuradetecter); 
 }
 
 
